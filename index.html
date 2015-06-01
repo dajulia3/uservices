@@ -34,11 +34,19 @@
         <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<ul>
-<li>Reduce the cost of change</li>
-</ul>
+<p>I thought I'd finally describe one of my favorite topics on application architecture; how to evolve an application over time. I've been thinking about writing this article for a while however, it's been slightly hard to effectively write a concrete example that captures all the decisions that go into writing large, distributed systems. More important, it's been even harder to craft a distributed example that evolves over time.</p>
+
+<p>I've recently worked on the below diagram, the application continuum, that attempts to describe the evolution of an application starting from a flat directory structure and then evolving to several applications and components.</p>
 
 <p><img src="https://raw.githubusercontent.com/barinek/uservices/master/evolve.png" alt=""></p>
+
+<p>Projects could start anywhere on the continuum - typically driven by the amount of knowledge one knows about an application or set of applications. The less knowledge, the further left. The more knowledge, the further right. I've noticed that most app developers, including myself, tend to start somewhere in the middle of the continuum.</p>
+
+<p><i>The continuum is language agnostic and applies to any modern programming language.</i></p>
+
+<p>Why is all this interesting? Isn't this just an opinionated way to organize a code base?</p>
+
+<p>The architecture is an approach that attempts to continually reduce the cost of change overtime by providing developers and product owners the ability to use and reuse components withing a given code base to both pivot existing products and easily create new ones. It's an architecture that embraces change.</p>
 
 <h3>
 <a id="project-structure" class="anchor" href="#project-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Structure</h3>
@@ -54,23 +62,39 @@ v4              Components
 v5              Services
 </code></pre>
 
+<p>I've chosen Pivotal Tracker as it has moved through a similar evolution over the past fews years. While I'm not using the actual Tracker code base (it's actually in Ruby), I've penciled in a few key epic features - Allocations, Backlog Management, and Time Tracking.</p>
+
+<p>Note - I've focused on the back-end development although, there's no reason you couldn't take a similar approach for the front end work. The project also includes only a few dependencies (Jetty and Jackson) and resides within a single Git repository.</p>
+
 <h3>
 <a id="v1-first-commit" class="anchor" href="#v1-first-commit" aria-hidden="true"><span class="octicon octicon-link"></span></a>(v1) First commit</h3>
+
+<p>The v1 tag starts with a flat directory structure. While it's slightly naive to start far left on the continuum, I wanted to demonstrate that this would be a reasonable starting point having made no decisions around architecture. No groupings, no components, no services. Just a single, flat directory with class files.</p>
 
 <h3>
 <a id="v2-functional-groups" class="anchor" href="#v2-functional-groups" aria-hidden="true"><span class="octicon octicon-link"></span></a>(v2) Functional groups</h3>
 
+<p>v2 moves classes into Models, Controllers, Data Access Layer, and Utilities directories. I've noticed this directory structure (MVC) over the years in many popular frameworks although, I've found that as your application grows, as they all do, a change to a small feature tends to drive changes through your entire code base. This becomes increasingly painful when class dependencies are not fully understood - typically the result of accidental design versus intentional design.</p>
+
 <h3>
 <a id="v3-feature-groups" class="anchor" href="#v3-feature-groups" aria-hidden="true"><span class="octicon octicon-link"></span></a>(v3) Feature groups</h3>
+
+<p>Todo</p>
 
 <h3>
 <a id="v4-components" class="anchor" href="#v4-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>(v4) Components</h3>
 
+<p>Todo</p>
+
 <h3>
 <a id="v5-services" class="anchor" href="#v5-services" aria-hidden="true"><span class="octicon octicon-link"></span></a>(v5) Services</h3>
 
+<p>Todo</p>
+
 <h3>
 <a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h3>
+
+<p>Todo</p>
 
 <p>Thanks! (<a href="https://github.com/barinek" class="user-mention">@barinek</a>) and thanks to () for the copy edit!</p>
       </section>
